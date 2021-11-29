@@ -23,7 +23,7 @@
   }
   
   input {
-    font-size: 80px;
+    font-size: 30px;
     border-radius: 10px;
     border: 1px solid #d2c0fd;
     width: 25%;
@@ -50,5 +50,6 @@
   
   h2 {
     font-size: 30px;
+    padding: 1em;
   }
   
