@@ -54,6 +54,7 @@ function App() {
 
         {dividendYield !== 0 && <h3>The stock's dividend yield is £{dividendYield}!</h3>}
         {dividendYield === 0 && <h3>Enter the stock's <b>last dividend</b> and <b>price</b> to get started!</h3>}
+        {dividendYield === Infinity && <h3>Enter the stock's <b>price</b>!</h3>}
       </div>
       <div id="peRatio" style={{marginTop: '5em'}}>      
         <h2>Calculate P/E ratio</h2>
@@ -69,6 +70,8 @@ function App() {
 
         {peRatio !== 0 && <h3>The stock's P/E ratio is £{peRatio}!</h3>}
         {peRatio === 0 && <h3>Enter the stock's <b>price</b> and <b>dividend</b> to get started!</h3>}
+        {peRatio === Infinity && <h3>Enter the stock's <b>dividend</b>!</h3>}
+
       </div>
     </div>
   );
