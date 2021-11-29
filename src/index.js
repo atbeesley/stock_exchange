@@ -1,17 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { useState } from "react";
+import ReactDOM from "react-dom";
+import "./styles.css";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+function App() {
+  const [lastDividend, setLastDividend] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [dividendYield, setDividendYield] = useState(0);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  function handleLastDividendChange(e) {
+    setLastDividend(Number(e.target.value));
+  }
+
+  function handlePriceChange(e) {
+    setPrice(+e.target.value);
+  }
+
+  function calculateDividendYield() {
+    setDividendYield(lastDividend / price);
+  }
+
+  return (
+    <div className="App">
+      <h1>Calculate dividend yield</h1>
+
+      <div className="number-inputs">
+        <input type="number" placeholder="0" onChange={handleLastDividendChange} />
+        <input type="number" placeholder="0" onChange={handlePriceChange} />
+      </div>
+
+      <button onClick={calculateDividendYield}>Calculate the dividend yield!</button>
+
+      {dividendYield !== 0 && <h3>The stock's dividend yield is £{dividendYield}!</h3>}
+      {dividendYield === 0 && <h3>Enter the stock's <b>last dividend</b> and <b>price</b> to get started!</h3>}
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
