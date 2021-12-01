@@ -2,6 +2,8 @@ import { useState } from "react";
 import ReactDOM from "react-dom";
 import "./styles.css";
 import RecordTradeForm from './components/recordTrade'
+import { Provider } from 'react-redux'
+import store from './store'
 
 function App() {
   const [lastDividend, setLastDividend] = useState(0);
@@ -80,4 +82,8 @@ function App() {
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>, 
+  rootElement);
