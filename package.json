@@ -5,9 +5,13 @@
   "dependencies": {
     "@babel/preset-env": "^7.16.4",
     "cra-template": "1.1.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3"
+    "react": "^18.0.0-beta-a65ceef37-20211130",
+    "react-dom": "^18.0.0-beta-a65ceef37-20211130",
+    "react-redux": "^7.2.6",
+    "react-scripts": "4.0.3",
+    "redux": "^4.1.2",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -34,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "react-bootstrap": "^2.0.3",
     "web-vitals": "^2.1.2"
   }
 }

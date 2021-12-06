@@ -1,6 +1,9 @@
 import { useState } from "react";
 import ReactDOM from "react-dom";
 import "./styles.css";
+import RecordTradeForm from './components/recordTrade'
+import { Provider } from 'react-redux'
+import store from './store'
 
 function App() {
   const [lastDividend, setLastDividend] = useState(0);
@@ -56,7 +59,7 @@ function App() {
         {dividendYield === 0 && <h3>Enter the stock's <b>last dividend</b> and <b>price</b> to get started!</h3>}
         {dividendYield === Infinity && <h3>Enter the stock's <b>price</b>!</h3>}
       </div>
-      <div id="peRatio" style={{marginTop: '5em'}}>      
+      <div id="peRatio" style={{marginTop: '5em', marginBottom: '5em'}}>      
         <h2>Calculate P/E ratio</h2>
 
         <div className="number-inputs">
@@ -73,9 +76,14 @@ function App() {
         {peRatio === Infinity && <h3>Enter the stock's <b>dividend</b>!</h3>}
 
       </div>
+      <RecordTradeForm />
     </div>
   );
 }
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>, 
+  rootElement);
