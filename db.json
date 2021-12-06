@@ -1,0 +1,11 @@
+{
+    "trades":[
+        {
+            "id":"1",
+            "timestamp":"16:18 02/12/2021",
+            "qty": 3,
+            "buyOrSell": "buy",
+            "price": 2
+        }
+    ]
+}
