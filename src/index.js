@@ -4,6 +4,7 @@ import "./styles.css";
 import RecordTradeForm from './components/recordTrade'
 
 function App() {
+
   const [lastDividend, setLastDividend] = useState(0);
   const [price, setPrice] = useState(0);
   const [dividendYield, setDividendYield] = useState(0);
@@ -48,7 +49,7 @@ function App() {
           <p>Last Dividend</p>
           <input type="number" placeholder="0" onChange={handleLastDividendChange} />
           <p>Price per share</p>
-          <input type="number" placeholder="0" onChange={handlePriceChange} />
+          <input type="number" placeholder="0" onChange={handlePriceChange} min="1" />
         </div>
 
         <button onClick={calculateDividendYield}>Calculate the dividend yield!</button>
@@ -56,6 +57,7 @@ function App() {
         {dividendYield !== 0 && <h3>The stock's dividend yield is £{dividendYield}!</h3>}
         {dividendYield === 0 && <h3>Enter the stock's <b>last dividend</b> and <b>price</b> to get started!</h3>}
         {dividendYield === Infinity && <h3>Enter the stock's <b>price</b>!</h3>}
+        {dividendYield < 0 && <h3>You made a bad investment!</h3>}
       </div>
       <div id="peRatio" style={{marginTop: '5em', marginBottom: '5em'}}>      
         <h2>Calculate P/E ratio</h2>
@@ -74,8 +76,7 @@ function App() {
         {peRatio === Infinity && <h3>Enter the stock's <b>dividend</b>!</h3>}
 
       </div>
-      <RecordTradeForm />
-    </div>
+  </div>
   );
 }
 
